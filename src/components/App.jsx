@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react';
 import MusicTable from './MusicTable/MusicTable';
+import AddSong from './AddSong/AddSong';
 
 
 class App extends Component {
@@ -44,10 +45,16 @@ class App extends Component {
         })
      }
 
+    addSong = (newSong) => {
+        this.state.songs.push(newSong);
+        this.setState({})
+    }
+
     render() { 
         return ( 
             <div>
                 <MusicTable makeTable = {this.makeTable}/>
+                <AddSong addSong = {this.addSong}/>
             </div>
          );
     }
