@@ -1,0 +1,14 @@
+.table {
+    text-align: center;
+    margin: 1em 5em;
+}
+
+.table-row {
+    background-color: aqua;
+    border: dashed black;
+}
+
+.table-header {
+    background-color: bisque;
+    border: solid black;
+}
