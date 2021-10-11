@@ -1,14 +1,24 @@
 .table {
     text-align: center;
-    margin: 1em 5em;
+    /* margin: 1em 5em; */
+    padding: 5em 20em;
+    
 }
 
 .table-row {
-    background-color: aqua;
+    background-color: navy;
     border: dashed black;
+    color: rgb(112, 104, 104);
+    padding: 1em;
 }
 
 .table-header {
-    background-color: bisque;
+    background-color: rgb(80, 3, 80);
     border: solid black;
+    padding: 1em;
+    color: rgb(216, 215, 215);
+}
+
+.button-row {
+    margin: 2px 10px;
 }

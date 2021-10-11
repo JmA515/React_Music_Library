@@ -33,12 +33,13 @@ class AddSong extends Component {
         axios.post('http://127.0.0.1:8000/music/', createdSong)
         .then((response) => {
             console.log(response.data)
+            this.props.addSong(response.data)
         }).catch((error) => {
             console.log(error)
+            alert('There was a problem adding the song '  +error.message)
         });
-        this.props.addSong(this.state)
     }
-    
+   
     render() { 
         return ( 
             <form onSubmit = {this.handleSubmit}>

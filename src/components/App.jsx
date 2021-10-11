@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import MusicTable from './MusicTable/MusicTable';
 import AddSong from './AddSong/AddSong';
 
-
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            songs: []
-
+            songs: [],
+            editingSong: undefined
          }
     }
 
@@ -30,30 +29,33 @@ class App extends Component {
         }
     }
 
-    makeTable = () => {
-        return this.state.songs.map((song) => {
-           const { title, artist, album, release_date, genre } = song
-           return (
-              <tr key={song.id}>
-                 <td className = "table-row">{title}</td>
-                 <td className = "table-row">{artist}</td>
-                 <td className = "table-row">{album}</td>
-                 <td className = "table-row">{release_date}</td>
-                 <td className = "table-row">{genre}</td>
-              </tr>
-           )
-        })
-     }
-
     addSong = (newSong) => {
         this.state.songs.push(newSong);
         this.setState({})
     }
 
+    removeSong = (song) => {
+        
+        let url = `http://127.0.0.1:8000/music/${song.id}/`;
+        axios.delete(url)
+        .then(response => {
+            console.log(response);
+            console.log(response.data);
+        }).catch((error) => {
+            console.log(error);
+        });
+        console.log(song.title);
+        
+        console.log(song)
+        let tableCopy = this.state.songs.filter((_song) => _song.id !== song.id);
+        this.setState({songs: tableCopy})
+    }
+
     render() { 
+
         return ( 
             <div>
-                <MusicTable makeTable = {this.makeTable}/>
+                <MusicTable songs={this.state.songs} removeSong = {this.removeSong}/>
                 <AddSong addSong = {this.addSong}/>
             </div>
          );
