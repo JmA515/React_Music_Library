@@ -2,13 +2,15 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import MusicTable from './MusicTable/MusicTable';
 import AddSong from './AddSong/AddSong';
+import SearchBar from './SearchBar/SearchBar';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             songs: [],
-            editingSong: undefined
+            editingSong: undefined,
+            searchTerm: '',
          }
     }
 
@@ -55,7 +57,8 @@ class App extends Component {
 
         return ( 
             <div>
-                <MusicTable songs={this.state.songs} removeSong = {this.removeSong}/>
+                <SearchBar songs = {this.state.songs} />
+                <MusicTable songs = {this.state.songs} removeSong = {this.removeSong}/>
                 <AddSong addSong = {this.addSong}/>
             </div>
          );
