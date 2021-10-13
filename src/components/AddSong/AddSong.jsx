@@ -42,7 +42,7 @@ class AddSong extends Component {
    
     render() { 
         return ( 
-            <form onSubmit = {this.handleSubmit}>
+            <form onSubmit = {this.handleSubmit} style = {{textAlign: 'center'}}>
                 <label>Song Title</label>
                 <input name = "title" onChange = {this.handleChange} value = {this.state.title}/>
                 <label>Artist</label>

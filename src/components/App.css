@@ -1,0 +1,10 @@
+.page-body {
+    background-color: gray;
+    align-items: center;
+}
+
+h1 {
+    padding: 2em;
+    text-align: center;
+    color: navy;
+}

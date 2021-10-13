@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MusicTable from './MusicTable/MusicTable';
 import AddSong from './AddSong/AddSong';
 import SearchBar from './SearchBar/SearchBar';
+import './App.css';
 
 class App extends Component {
     constructor(props) {
@@ -56,7 +57,8 @@ class App extends Component {
     render() { 
 
         return ( 
-            <div>
+            <div className = 'page-body'>
+                <h1>Music Library</h1>
                 <SearchBar songs = {this.state.songs} />
                 <MusicTable songs = {this.state.songs} removeSong = {this.removeSong}/>
                 <AddSong addSong = {this.addSong}/>

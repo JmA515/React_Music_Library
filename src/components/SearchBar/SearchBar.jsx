@@ -9,20 +9,19 @@ class SearchBar extends Component {
          }
     }
 
-    editSearchTerm = (e) => {
-        this.setState({searchTerm: e.target.value})
-    }
+    editSearchTerm = (event) => {
+        this.setState({searchTerm: event.target.value})
+      }
     
-    dynamicSearch = () => {
-        return this.props.songs.filter(title => title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    dynamicSearch = (props) => {
+        return props.songs.filter(title => title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
     }
-
 
 
     render() { 
         return ( 
-            <div style = {{textAlign: 'center', paddingTop: '30vh'}}>
-                <input type= 'text' value = {this.state.searchTerm} onChange = {this.editSearchTerm} placeholder = 'Search for a song'/>
+            <div style = {{textAlign: 'center'}}>
+                <input type= 'text' value = {this.state.searchTerm} onChange = {this.editSearchTerm} placeholder = 'Search under construction'/>
             </div>
         )}
 }
